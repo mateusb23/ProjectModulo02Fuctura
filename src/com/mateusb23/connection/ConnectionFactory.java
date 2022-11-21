@@ -6,7 +6,7 @@ import javax.persistence.Persistence;
 
 public class ConnectionFactory {
 
-	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("Bank Application");
+	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("BankProject");
 	
 	public EntityManager getEntityManager() {
 		return emf.createEntityManager();
