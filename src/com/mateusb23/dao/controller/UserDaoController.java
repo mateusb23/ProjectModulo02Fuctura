@@ -2,11 +2,10 @@ package com.mateusb23.dao.controller;
 
 import java.util.List;
 
-import com.mateusb23.dao.GenericDAO;
+import com.mateusb23.dao.UserDAO;
 import com.mateusb23.model.entities.User;
 
-@SuppressWarnings("hiding")
-public class UserDaoController<User> extends GenericDAO<User> {
+public class UserDaoController extends UserDAO {
 
 	@Override
 	public void save(User obj) {

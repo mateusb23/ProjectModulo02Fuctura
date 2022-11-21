@@ -1,5 +1,7 @@
 package com.mateusb23.dao;
 
-public interface UserDAO {
+import com.mateusb23.model.entities.User;
+
+public abstract class UserDAO extends GenericDAO<User> {
 
 }

@@ -1,7 +1,9 @@
 package com.mateusb23.dao;
 
-public interface AccountDAO<Account> {
+import com.mateusb23.model.entities.Account;
 
-	Account findByNumber(Long numberAccount);
+public abstract class AccountDAO extends GenericDAO<Account> {
+
+	public abstract Account findByNumber(Long numberAccount);
 	
 }
