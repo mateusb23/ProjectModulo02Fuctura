@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import com.mateusb23.connection.ConnectionFactory;
 import com.mateusb23.dao.AccountDAO;
 import com.mateusb23.model.entities.Account;
+import com.mysql.jdbc.AbandonedConnectionCleanupThread;
 
 public class AccountDaoController extends AccountDAO {
 
@@ -87,8 +88,34 @@ public class AccountDaoController extends AccountDAO {
 	@Override
 	public Account findByNumber(Long numberAccount) {
 		EntityManager em = new ConnectionFactory().getEntityManager();
-
+		
+		try {
+			
+		} catch (Exception e) {
+			
+		} finally {
+			
+		}
+		
 		return null;
+	}
+
+	@Override
+	public void depositAmount(Long numberAccount, Double amount) {
+		EntityManager em = new ConnectionFactory().getEntityManager();
+		
+	}
+
+	@Override
+	public Account passwordCheck(Integer password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void withdrawAmount(Long numberAccount, Double amount) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
