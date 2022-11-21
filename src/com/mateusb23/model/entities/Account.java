@@ -34,7 +34,7 @@ public class Account {
 	
 	public Account () { }
 
-	public Account(Integer id, Long numAccount, Double balance, Integer password, BankingInstitution bank, User user) {
+	public Account(Long numAccount, Double balance, Integer password, BankingInstitution bank, User user) {
 		this.numAccount = numAccount;
 		this.balance = balance;
 		this.password = password;

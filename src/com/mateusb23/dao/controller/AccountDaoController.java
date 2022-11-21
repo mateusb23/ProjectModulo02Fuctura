@@ -12,41 +12,82 @@ public class AccountDaoController extends AccountDAO {
 
 	@Override
 	public Account findByNumber(Long numberAccount) {
-		EntityManager emf = new ConnectionFactory().getEntityManager();
+		EntityManager em = new ConnectionFactory().getEntityManager();
 
 		return null;
 	}
 
 	@Override
 	public void save(Account account) {
-		EntityManager emf = new ConnectionFactory().getEntityManager();
+		EntityManager em = new ConnectionFactory().getEntityManager();
 		
 		try {
+			em.getTransaction().begin();
 			if (account.getId() == null) {
-				
+				em.persist(account);
+			} else {
+				em.merge(account);
 			}
+			em.getTransaction().commit();
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
+			em.getTransaction().rollback();
 		} finally {
-			
+			em.close();
 		}
 	}
 
 	@Override
 	public Account findById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager em = new ConnectionFactory().getEntityManager();
+		
+		Account account = null;
+		
+		try {
+			account = em.find(Account.class, id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+		return account;
 	}
 
 	@Override
 	public List<Account> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager em = new ConnectionFactory().getEntityManager();
+		
+		List<Account> accounts = null;
+		
+		try {
+			accounts = em.createQuery("from TB_ACCOUNT").getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+		
+		return accounts;
 	}
 
 	@Override
 	public void removeById(Integer id) {
-		// TODO Auto-generated method stub
+		EntityManager em = new ConnectionFactory().getEntityManager();
+		
+		try {
+			em.getTransaction().begin();
+			if (findById(id) != null) {
+				em.remove(id);
+			} else {
+				findAll();
+			}
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			em.getTransaction().rollback();
+		} finally {
+			em.close();
+		}
 		
 	}
 
