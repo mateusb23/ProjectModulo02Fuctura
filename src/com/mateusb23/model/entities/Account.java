@@ -94,7 +94,7 @@ public class Account {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, numAccount, password);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -106,8 +106,8 @@ public class Account {
 		if (getClass() != obj.getClass())
 			return false;
 		Account other = (Account) obj;
-		return Objects.equals(id, other.id) && Objects.equals(numAccount, other.numAccount)
-				&& Objects.equals(password, other.password);
+		return Objects.equals(id, other.id);
 	}
+	
 	
 }

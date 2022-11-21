@@ -11,13 +11,6 @@ import com.mateusb23.model.entities.Account;
 public class AccountDaoController extends AccountDAO {
 
 	@Override
-	public Account findByNumber(Long numberAccount) {
-		EntityManager em = new ConnectionFactory().getEntityManager();
-
-		return null;
-	}
-
-	@Override
 	public void save(Account account) {
 		EntityManager em = new ConnectionFactory().getEntityManager();
 		
@@ -89,6 +82,13 @@ public class AccountDaoController extends AccountDAO {
 			em.close();
 		}
 		
+	}
+	
+	@Override
+	public Account findByNumber(Long numberAccount) {
+		EntityManager em = new ConnectionFactory().getEntityManager();
+
+		return null;
 	}
 
 }
