@@ -11,9 +11,10 @@ import com.mateusb23.model.entities.Account;
 
 public class AccountDaoController extends AccountDAO {
 
+	private EntityManager em = ConnectionFactory.getEntityManager();
+	
 	@Override
 	public void save(Account account) {
-		EntityManager em = new ConnectionFactory().getEntityManager();
 		
 		try {
 			em.getTransaction().begin();
@@ -33,7 +34,6 @@ public class AccountDaoController extends AccountDAO {
 
 	@Override
 	public Account findById(Integer id) {
-		EntityManager em = new ConnectionFactory().getEntityManager();
 		
 		Account account = null;
 		
@@ -49,7 +49,7 @@ public class AccountDaoController extends AccountDAO {
 
 	@Override
 	public List<Account> findAll() {
-		EntityManager em = new ConnectionFactory().getEntityManager();
+		
 		
 		List<Account> accounts = null;
 		
@@ -66,7 +66,7 @@ public class AccountDaoController extends AccountDAO {
 
 	@Override
 	public void deleteById(Integer id) {
-		EntityManager em = new ConnectionFactory().getEntityManager();
+		
 		
 		Account account = null;
 		
@@ -90,11 +90,13 @@ public class AccountDaoController extends AccountDAO {
 	
 	@Override
 	public Account findByNumber(Long numberAccount) {
-		EntityManager em = new ConnectionFactory().getEntityManager();
+		
 
+		Account account = null;
+		
 		try {
 			Query findNumberAccount = em.createQuery("SELECT acc FROM TB_ACCOUNT acc WHERE NM_ACCOUNT = " + numberAccount);
-			Account account = (Account) findNumberAccount.getSingleResult();
+			account = (Account) findNumberAccount.getSingleResult();
 			findById(account.getId());
 			return account;
 		} catch (Exception e) {
@@ -103,12 +105,12 @@ public class AccountDaoController extends AccountDAO {
 			em.close();
 		}
 		
-		return null;
+		return account;
 	}
 
 	@Override
 	public void depositAmount(Long numberAccount, Double amount) {
-		EntityManager em = new ConnectionFactory().getEntityManager();
+		
 		
 	}
 

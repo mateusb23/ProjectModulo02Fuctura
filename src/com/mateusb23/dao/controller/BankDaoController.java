@@ -10,9 +10,10 @@ import com.mateusb23.model.entities.BankingInstitution;
 
 public class BankDaoController extends BankDAO {
 
+	private EntityManager em = ConnectionFactory.getEntityManager();
+	
 	@Override
 	public void save(BankingInstitution bank) {
-		EntityManager em = new ConnectionFactory().getEntityManager();
 		
 		try {
 			em.getTransaction().begin();
@@ -32,7 +33,6 @@ public class BankDaoController extends BankDAO {
 
 	@Override
 	public BankingInstitution findById(Integer id) {
-		EntityManager em = new ConnectionFactory().getEntityManager();
 		
 		BankingInstitution bank = null; 
 		
@@ -49,7 +49,6 @@ public class BankDaoController extends BankDAO {
 
 	@Override
 	public List<BankingInstitution> findAll() {
-		EntityManager em = new ConnectionFactory().getEntityManager();
 		
 		List<BankingInstitution> banks = null;
 		
@@ -66,8 +65,7 @@ public class BankDaoController extends BankDAO {
 
 	@Override
 	public void deleteById(Integer id) {
-		EntityManager em = new ConnectionFactory().getEntityManager();
-
+		
 		try {
 			em.getTransaction().begin();
 			if (findById(id) != null) {

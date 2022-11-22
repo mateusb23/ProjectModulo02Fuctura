@@ -8,7 +8,7 @@ public class ConnectionFactory {
 
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("BankProject");
 	
-	public EntityManager getEntityManager() {
+	public static EntityManager getEntityManager() {
 		return emf.createEntityManager();
 	}
 	

@@ -10,9 +10,10 @@ import com.mateusb23.model.entities.User;
 
 public class UserDaoController extends UserDAO {
 
+	private EntityManager em = ConnectionFactory.getEntityManager();
+	
 	@Override
 	public void save(User user) {
-		EntityManager em = new ConnectionFactory().getEntityManager();
 		
 	}
 
