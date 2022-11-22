@@ -14,8 +14,11 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 @Entity
 @Table(name = "TB_USER")
+@DynamicUpdate
 public class User {
 
 	@Id
@@ -24,12 +27,12 @@ public class User {
 	private Integer id;
 	@Column(name = "USERNAME", nullable = false)
 	private String username;
-	@Column(name = "SEXO", length = 1)		// M / F / N
+	@Column(name = "SEXO", nullable = false, length = 1)		// M / F / N
 	private String sexo;
-	@Column(name = "CPF", nullable = false, length = 12, unique = true)		// 000000000-00
+	@Column(name = "CPF", nullable = false, length = 14, unique = true)		// 000.000.000-00
 	private String cpf;
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "BIRTHDATE")
+	@Column(name = "BIRTHDATE", nullable = false)
 	private Date birthdate;
 	
 	public User() { }

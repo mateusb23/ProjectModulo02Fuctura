@@ -17,11 +17,12 @@ public class UserDaoController extends UserDAO {
 		
 		try {
 			em.getTransaction().begin();
-			if (user.getId() == null) {
+			/*if (user.getId() == null) {
 				em.persist(user);
 			} else {
 				em.merge(user);
-			}
+			}*/
+			em.persist(user);
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();

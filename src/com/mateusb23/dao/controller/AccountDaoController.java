@@ -18,11 +18,12 @@ public class AccountDaoController extends AccountDAO {
 		
 		try {
 			em.getTransaction().begin();
-			if (account.getId() == null) {
+			/*if (account.getId() == null) {
 				em.persist(account);
 			} else {
 				em.merge(account);
-			}
+			}*/
+			em.persist(account);
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();

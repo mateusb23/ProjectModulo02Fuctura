@@ -17,11 +17,12 @@ public class BankDaoController extends BankDAO {
 
 		try {
 			em.getTransaction().begin();
-			if (bank.getId() == null) {
+			/*if (bank.getId() == null) {
 				em.persist(bank);
 			} else {
 				em.merge(bank);
-			}
+			}*/
+			em.persist(bank);
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -2,6 +2,7 @@ package com.mateusb23.model.entities;
 
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,8 +12,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 @Entity
 @Table(name = "TB_ACCOUNT")
+@DynamicUpdate
 public class Account {
 
 	@Id
@@ -25,21 +29,21 @@ public class Account {
 	private Double balance;
 	@Column(name = "PASSWORD", nullable = false)
 	private Integer password;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ID_BANK", nullable = false, referencedColumnName = "ID_BANK")
 	private BankingInstitution bank;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ID_USER", nullable = false, referencedColumnName = "ID_USER")
 	private User user;
 	
 	public Account () { }
 
-	public Account(Long numAccount, Double balance, Integer password, BankingInstitution bank, User user) {
+	public Account(Long numAccount, Double balance, Integer password, User user, BankingInstitution bank) {
 		this.numAccount = numAccount;
 		this.balance = balance;
 		this.password = password;
-		this.bank = bank;
 		this.user = user;
+		this.bank = bank;
 	}
 
 	public Long getNumAccount() {
