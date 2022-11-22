@@ -54,7 +54,7 @@ public class BankingInstitution {
 
 	@Override
 	public String toString() {
-		return "BankingInstitution [id=" + id + ", bankname=" + bankname + ", cnpj=" + cnpj + "]";
+		return "\nBankingInstitution [id=" + id + "| bankname=" + bankname + "| cnpj=" + cnpj + "]";
 	}
 
 	@Override

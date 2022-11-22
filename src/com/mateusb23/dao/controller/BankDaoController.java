@@ -1,5 +1,6 @@
 package com.mateusb23.dao.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -50,10 +51,10 @@ public class BankDaoController extends BankDAO {
 	@Override
 	public List<BankingInstitution> findAll() {
 
-		List<BankingInstitution> banks = null;
+		List<BankingInstitution> banks = new ArrayList<>();
 
 		try {
-			banks = em.createQuery("FROM TB_BANK").getResultList();
+			banks = em.createQuery("from BankingInstitution").getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

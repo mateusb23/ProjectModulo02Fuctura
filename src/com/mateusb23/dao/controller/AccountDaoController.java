@@ -1,5 +1,6 @@
 package com.mateusb23.dao.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -50,11 +51,10 @@ public class AccountDaoController extends AccountDAO {
 	@Override
 	public List<Account> findAll() {
 		
-		
-		List<Account> accounts = null;
+		List<Account> accounts = new ArrayList<>();
 		
 		try {
-			accounts = em.createQuery("FROM TB_ACCOUNT").getResultList();
+			accounts = em.createQuery("from Account").getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

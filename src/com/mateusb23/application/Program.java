@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.mateusb23.dao.controller.AccountDaoController;
+import com.mateusb23.dao.controller.BankDaoController;
 import com.mateusb23.model.entities.Account;
 import com.mateusb23.model.entities.BankingInstitution;
 import com.mateusb23.model.entities.User;
@@ -15,7 +16,7 @@ public class Program {
 		
 		AccountDaoController accountDaoController = new AccountDaoController();
 		
-		User user1 = new User("Fiódor Dostoiévski", "M", "201.471.525-42", "09/04/2019");
+	/*	User user1 = new User("Fiódor Dostoiévski", "M", "201.471.525-42", "09/04/2019");
 		User user2 = new User("Safira Gordinha", "F", "126.171.655-82", "20/10/2013");
 		User user3 = new User("Mel Velhinha", "F", "345.258.363-50", "20/10/2013");
 		User user4 = new User("Lepe Peludo", "M", "227.363.738-12", "17/02/2010");
@@ -44,8 +45,13 @@ public class Program {
 		accounts.add(account6);
 		accounts.add(account7);
 		
-		accounts.forEach(accountDaoController::save);
+		accounts.forEach(accountDaoController::save);  */
 		
+		System.out.println(accountDaoController.findAll());		
+		
+		/*BankDaoController bankDaoController = new BankDaoController();
+		
+		System.out.println(bankDaoController.findAll());*/
 		
 	}
 	
