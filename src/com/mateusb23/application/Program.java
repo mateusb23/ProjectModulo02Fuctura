@@ -18,7 +18,7 @@ public class Program {
 		User user1 = new User("Fiódor Dostoiévski", "M", "201.471.525-42", "09/04/2019");
 		User user2 = new User("Safira Gordinha", "F", "126.171.655-82", "20/10/2013");
 		User user3 = new User("Mel Velhinha", "F", "345.258.363-50", "20/10/2013");
-		User user4 = new User("Lepe Peludo", "F", "227.363.738-12", "17/02/2010");
+		User user4 = new User("Lepe Peludo", "M", "227.363.738-12", "17/02/2010");
 		
 		BankingInstitution bank1 = new BankingInstitution("Bradesco", "60.746.948/0001-12");
 		BankingInstitution bank2 = new BankingInstitution("Safra", "58.160.789/0001-28");
