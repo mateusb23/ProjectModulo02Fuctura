@@ -17,18 +17,17 @@ public class BankDaoController extends BankDAO {
 
 		try {
 			em.getTransaction().begin();
-			/*if (bank.getId() == null) {
+			if (bank.getId() == null) {
 				em.persist(bank);
 			} else {
 				em.merge(bank);
-			}*/
-			em.persist(bank);
+			}
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 			em.getTransaction().rollback();
 		} finally {
-			em.close();
+			System.out.println("COMPLETED OPERATION");
 		}
 	}
 
@@ -42,7 +41,7 @@ public class BankDaoController extends BankDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			em.close();
+			System.out.println("COMPLETED OPERATION");
 		}
 
 		return bank;
@@ -58,7 +57,7 @@ public class BankDaoController extends BankDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			em.close();
+			System.out.println("COMPLETED OPERATION");
 		}
 
 		return banks;
@@ -84,7 +83,7 @@ public class BankDaoController extends BankDAO {
 			e.printStackTrace();
 			em.getTransaction().rollback();
 		} finally {
-			em.close();
+			System.out.println("COMPLETED OPERATION");
 		}
 
 	}

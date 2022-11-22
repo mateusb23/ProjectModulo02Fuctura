@@ -17,18 +17,17 @@ public class UserDaoController extends UserDAO {
 		
 		try {
 			em.getTransaction().begin();
-			/*if (user.getId() == null) {
+			if (user.getId() == null) {
 				em.persist(user);
 			} else {
 				em.merge(user);
-			}*/
-			em.persist(user);
+			}
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 			em.getTransaction().rollback();
 		} finally {
-			em.close();
+			System.out.println("COMPLETED OPERATION");
 		}
 	}
 
@@ -42,7 +41,7 @@ public class UserDaoController extends UserDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			em.close();
+			System.out.println("COMPLETED OPERATION");
 		}
 		
 		return user;
@@ -58,7 +57,7 @@ public class UserDaoController extends UserDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			em.close();
+			System.out.println("COMPLETED OPERATION");
 		}
 		
 		return users;
@@ -82,7 +81,7 @@ public class UserDaoController extends UserDAO {
 			e.printStackTrace();
 			em.getTransaction().rollback();
 		} finally {
-			em.close();
+			System.out.println("COMPLETED OPERATION");
 		}
 		
 	}

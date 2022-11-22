@@ -18,18 +18,17 @@ public class AccountDaoController extends AccountDAO {
 		
 		try {
 			em.getTransaction().begin();
-			/*if (account.getId() == null) {
+			if (account.getId() == null) {
 				em.persist(account);
 			} else {
 				em.merge(account);
-			}*/
-			em.persist(account);
+			}
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 			em.getTransaction().rollback();
 		} finally {
-			
+			System.out.println("COMPLETED OPERATION");
 		}
 	}
 
@@ -43,7 +42,7 @@ public class AccountDaoController extends AccountDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			em.close();
+			System.out.println("COMPLETED OPERATION");
 		}
 		return account;
 	}
@@ -59,7 +58,7 @@ public class AccountDaoController extends AccountDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			em.close();
+			System.out.println("COMPLETED OPERATION");
 		}
 		
 		return accounts;
@@ -83,7 +82,7 @@ public class AccountDaoController extends AccountDAO {
 			e.printStackTrace();
 			em.getTransaction().rollback();
 		} finally {
-			em.close();
+			System.out.println("COMPLETED OPERATION");
 		}
 		
 	}
@@ -101,7 +100,7 @@ public class AccountDaoController extends AccountDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			em.close();
+			System.out.println("COMPLETED OPERATION");
 		}
 		
 		return account;
