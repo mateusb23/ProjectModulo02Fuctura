@@ -29,7 +29,7 @@ public class AccountDaoController extends AccountDAO {
 			e.printStackTrace();
 			em.getTransaction().rollback();
 		} finally {
-			em.close();
+			
 		}
 	}
 
