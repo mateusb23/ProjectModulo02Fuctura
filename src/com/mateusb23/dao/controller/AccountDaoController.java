@@ -3,11 +3,11 @@ package com.mateusb23.dao.controller;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import com.mateusb23.connection.ConnectionFactory;
 import com.mateusb23.dao.AccountDAO;
 import com.mateusb23.model.entities.Account;
-import com.mysql.jdbc.AbandonedConnectionCleanupThread;
 
 public class AccountDaoController extends AccountDAO {
 
@@ -65,15 +65,18 @@ public class AccountDaoController extends AccountDAO {
 	}
 
 	@Override
-	public void removeById(Integer id) {
+	public void deleteById(Integer id) {
 		EntityManager em = new ConnectionFactory().getEntityManager();
+		
+		Account account = null;
 		
 		try {
 			em.getTransaction().begin();
-			if (findById(id) != null) {
-				em.remove(id);
+			account = findById(id);
+			if (account != null) {
+				em.remove(account);
 			} else {
-				findAll();
+				System.out.println("Sorry, this account does not exist.");
 			}
 			em.getTransaction().commit();
 		} catch (Exception e) {
@@ -88,13 +91,16 @@ public class AccountDaoController extends AccountDAO {
 	@Override
 	public Account findByNumber(Long numberAccount) {
 		EntityManager em = new ConnectionFactory().getEntityManager();
-		
+
 		try {
-			
+			Query findNumberAccount = em.createQuery("SELECT acc FROM TB_ACCOUNT acc WHERE NM_ACCOUNT = " + numberAccount);
+			Account account = (Account) findNumberAccount.getSingleResult();
+			findById(account.getId());
+			return account;
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		} finally {
-			
+			em.close();
 		}
 		
 		return null;

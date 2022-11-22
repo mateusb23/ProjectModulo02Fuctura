@@ -29,7 +29,7 @@ public class UserDaoController extends UserDAO {
 	}
 
 	@Override
-	public void removeById(Integer id) {
+	public void deleteById(Integer id) {
 		// TODO Auto-generated method stub
 		
 	}

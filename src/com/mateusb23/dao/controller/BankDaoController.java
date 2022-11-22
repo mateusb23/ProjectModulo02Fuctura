@@ -65,9 +65,9 @@ public class BankDaoController extends BankDAO {
 	}
 
 	@Override
-	public void removeById(Integer id) {
+	public void deleteById(Integer id) {
 		EntityManager em = new ConnectionFactory().getEntityManager();
-		
+
 		try {
 			em.getTransaction().begin();
 			if (findById(id) != null) {
@@ -84,7 +84,9 @@ public class BankDaoController extends BankDAO {
 		} finally {
 			em.close();
 		}
-		
+
 	}
+
+
 
 }
