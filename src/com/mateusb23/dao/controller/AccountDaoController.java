@@ -54,7 +54,7 @@ public class AccountDaoController extends AccountDAO {
 		List<Account> accounts = null;
 		
 		try {
-			accounts = em.createQuery("from TB_ACCOUNT").getResultList();
+			accounts = em.createQuery("FROM TB_ACCOUNT").getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -66,7 +66,6 @@ public class AccountDaoController extends AccountDAO {
 
 	@Override
 	public void deleteById(Integer id) {
-		
 		
 		Account account = null;
 		
@@ -90,7 +89,6 @@ public class AccountDaoController extends AccountDAO {
 	
 	@Override
 	public Account findByNumber(Long numberAccount) {
-		
 
 		Account account = null;
 		
@@ -110,7 +108,6 @@ public class AccountDaoController extends AccountDAO {
 
 	@Override
 	public void depositAmount(Long numberAccount, Double amount) {
-		
 		
 	}
 

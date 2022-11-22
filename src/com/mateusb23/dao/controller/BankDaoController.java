@@ -11,10 +11,10 @@ import com.mateusb23.model.entities.BankingInstitution;
 public class BankDaoController extends BankDAO {
 
 	private EntityManager em = ConnectionFactory.getEntityManager();
-	
+
 	@Override
 	public void save(BankingInstitution bank) {
-		
+
 		try {
 			em.getTransaction().begin();
 			if (bank.getId() == null) {
@@ -33,9 +33,9 @@ public class BankDaoController extends BankDAO {
 
 	@Override
 	public BankingInstitution findById(Integer id) {
-		
+
 		BankingInstitution bank = null; 
-		
+
 		try {
 			bank = em.find(BankingInstitution.class, id);
 		} catch (Exception e) {
@@ -43,33 +43,36 @@ public class BankDaoController extends BankDAO {
 		} finally {
 			em.close();
 		}
-		
+
 		return bank;
 	}
 
 	@Override
 	public List<BankingInstitution> findAll() {
-		
+
 		List<BankingInstitution> banks = null;
-		
+
 		try {
-			banks = em.createQuery("from TB_BANK").getResultList();
+			banks = em.createQuery("FROM TB_BANK").getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			em.close();
 		}
-		
+
 		return banks;
 	}
 
 	@Override
 	public void deleteById(Integer id) {
-		
+
+		BankingInstitution bank = null;
+
 		try {
 			em.getTransaction().begin();
-			if (findById(id) != null) {
-				em.remove(id);
+			bank = findById(id);
+			if (bank != null) {
+				em.remove(bank);
 			} else {
 				System.out.println("Sorry, this banking institution does not exist. "
 						+ "\nCheck out the full list of banks below: \n"
@@ -84,7 +87,6 @@ public class BankDaoController extends BankDAO {
 		}
 
 	}
-
 
 
 }
