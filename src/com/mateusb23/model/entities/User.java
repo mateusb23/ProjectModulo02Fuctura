@@ -45,11 +45,11 @@ public class User {
 		this.birthdate = sdf.parse(birthdate);
 	}
 
-	public String getUser_name() {
+	public String getUsername() {
 		return username;
 	}
 
-	public void setUser_name(String userName) {
+	public void setUsername(String userName) {
 		this.username = userName;
 	}
 

@@ -89,13 +89,10 @@ public class AccountDaoController extends AccountDAO {
 	
 	@Override
 	public Account findByNumber(Long numberAccount) {
-
-		Account account = null;
 		
 		try {
-			Query findNumberAccount = em.createQuery("SELECT acc FROM TB_ACCOUNT acc WHERE NM_ACCOUNT = " + numberAccount);
-			account = (Account) findNumberAccount.getSingleResult();
-			findById(account.getId());
+			Query query = em.createQuery("SELECT acc FROM Account acc WHERE NM_ACCOUNT = " + numberAccount);
+			Account account = (Account) query.getSingleResult();
 			return account;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -103,7 +100,7 @@ public class AccountDaoController extends AccountDAO {
 			System.out.println("COMPLETED OPERATION");
 		}
 		
-		return account;
+		return null;
 	}
 
 	@Override

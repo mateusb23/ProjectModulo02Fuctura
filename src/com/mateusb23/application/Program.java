@@ -47,7 +47,7 @@ public class Program {
 		
 		accounts.forEach(accountDaoController::save);  */
 		
-		System.out.println(accountDaoController.findAll());		
+		System.out.println(accountDaoController.findByNumber(8949549L).getUser().getUsername());		
 		
 		/*BankDaoController bankDaoController = new BankDaoController();
 		
