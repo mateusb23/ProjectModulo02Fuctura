@@ -52,6 +52,8 @@ public class Program {
 		accounts.add(account5);
 		accounts.add(account6);
 		accounts.add(account7);
+		accounts.add(account8);
+		accounts.add(account9);
 		
 		accounts.forEach(accountDaoController::save);  */
 		
