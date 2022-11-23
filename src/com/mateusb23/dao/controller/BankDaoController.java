@@ -89,5 +89,11 @@ public class BankDaoController extends BankDAO {
 
 	}
 
+	@Override
+	public BankingInstitution findByCnpj(String cnpj) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

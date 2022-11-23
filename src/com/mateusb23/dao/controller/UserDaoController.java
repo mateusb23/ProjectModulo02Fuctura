@@ -1,8 +1,11 @@
 package com.mateusb23.dao.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import com.mateusb23.connection.ConnectionFactory;
 import com.mateusb23.dao.UserDAO;
@@ -53,7 +56,7 @@ public class UserDaoController extends UserDAO {
 		List<User> users = null;
 		
 		try {
-			users = em.createQuery("FROM TB_USER").getResultList();
+			users = em.createQuery("FROM User").getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -88,8 +91,18 @@ public class UserDaoController extends UserDAO {
 
 	@Override
 	public User findByCpf(String cpf) {
-		// TODO Auto-generated method stub
+
+		try {
+			Query query = em.createQuery("SELECT user FROM User user WHERE cpf = " + cpf);
+			User user = (User) query.getSingleResult();
+			findById(user.getId());
+			return user;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		
 		return null;
 	}
+
 
 }

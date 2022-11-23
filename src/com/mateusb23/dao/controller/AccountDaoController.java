@@ -54,7 +54,7 @@ public class AccountDaoController extends AccountDAO {
 		List<Account> accounts = new ArrayList<>();
 		
 		try {
-			accounts = em.createQuery("from Account").getResultList();
+			accounts = em.createQuery("FROM Account").getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -91,7 +91,7 @@ public class AccountDaoController extends AccountDAO {
 	public Account findByNumber(Long numberAccount) {
 		
 		try {
-			Query query = em.createQuery("SELECT acc FROM Account acc WHERE NM_ACCOUNT = " + numberAccount);
+			Query query = em.createQuery("SELECT acc FROM Account acc WHERE numAccount = " + numberAccount);     // Instead of numAccount, we could have written NM_ACCOUNT
 			Account account = (Account) query.getSingleResult();
 			return account;
 		} catch (Exception e) {
