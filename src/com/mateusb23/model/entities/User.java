@@ -25,7 +25,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID_USER")
 	private Integer id;
-	@Column(name = "USERNAME", nullable = false)
+	@Column(name = "USERNAME", nullable = false, length = 80)
 	private String username;
 	@Column(name = "SEXO", nullable = false, length = 1)		// M / F / N
 	private String sexo;

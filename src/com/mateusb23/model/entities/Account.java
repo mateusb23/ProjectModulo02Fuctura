@@ -27,7 +27,7 @@ public class Account {
 	private Long numAccount;
 	@Column(name = "BALANCE", nullable = false)
 	private Double balance;
-	@Column(name = "PASSWORD", nullable = false)
+	@Column(name = "PASSWORD", nullable = false, length = 4)
 	private Integer password;
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ID_BANK", nullable = false, referencedColumnName = "ID_BANK")
